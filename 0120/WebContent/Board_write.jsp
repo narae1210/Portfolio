@@ -84,9 +84,9 @@ function empty_check() {
 
 						</tr>
 					</table>
-					<input type="button" value="Submit!" name="questionin"
-						style="width: 500px; height: 40px; background-color: #2196f3; position:absolute; top:450px; left:140px;" onclick="empty_check()">
-					</div>
+					<input type="submit" value="Submit!" name="questionin"
+						style="width: 500px; height: 40px; background-color: #2196f3; position: absolute; top: 450px; left: 140px;">
+				</div>
 				</div>
 		</form>
 	</section>

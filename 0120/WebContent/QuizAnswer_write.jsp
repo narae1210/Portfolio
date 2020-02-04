@@ -56,12 +56,13 @@ function empty_check() {
 	</nav>
 	<br><br><br>
 <section style="Height: 684px;">
-		<form name="my_form" action="BoardDb.jsp" method=post>
+		<form name="my_form" action="Sang.do?command=answerwritepro" method=post>  <!--서블릿에서 받는 명령어 if (command.equals("answerwritepro")) {e -->
 				<div id=QnaboardbodyBox align="center">
 				<div id=BoardBox align="center" style ="height: 500px;">
 				
 				<label class="lnb"> 문제풀기 </label>
 				<table style= "position:absolute; top:80px; left:150px;">
+				<!-- input type hidden:  퀴즈아이디, 댓글ref, 댓글seq --> 
 	
 						<tr>
 							<th><font color="red">*</font>언어</th>
@@ -97,12 +98,13 @@ function empty_check() {
 							<th><font color="red">*</font>소스코드</th>
 						</tr>
 						<tr>
-							<td colspan="3"><input type="textarea" name="contents" id="contents" size="60"
-								maxlength="60"></td>
+							<td colspan="3"><input type="text" name="contents" id="contents" size="60"
+								maxlength="60"></td> 
+							</form>
 
 						</tr>
 					</table>
-					<input type="button" value="Submit!" name="quizanswerin"
+					<input type="submit" value="Submit!" name="quizanswerin"
 						style="width: 500px; height: 40px; background-color: #2196f3; position:absolute; top:450px; left:140px;" onclick="empty_check()">
 					</div>
 				</div>

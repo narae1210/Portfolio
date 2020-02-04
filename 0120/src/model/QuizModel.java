@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -37,6 +38,35 @@ public class QuizModel {
 		sqlSession.close();
 		return list; //퀴즈임플에 List<QuizDto> list 반환.
 	}
+	
+	//답변 작성 메서드 추가
+/*	public void asnwerWriteForm(String id) {
+	}*/
+	
+	//답변 제출 메서드 추가
+	public String asnwerWritePro(String id, String ref, String seq) {
+		System.out.println("model패키지-답변 처리 메서드");
+		//압변 내용은 별도 테이블에 따로 저장
+		QuizDto call = new QuizDto();
+		Integer i = Integer.parseInt(id);
+		Integer r = Integer.parseInt(ref);
+		Integer q = Integer.parseInt(seq);
+		SqlSession sqlSession = factory.openSession();
+		call.setQuizid(i);
+		call.setRe_ref(r);
+		call.setRe_seq(q);
+		sqlSession.insert("answerwritePro", call); //mapper.xml에 가서 select id="answerwritePro"실행함. 이 때 QuizDto에 값을 넣은 call (매개변수? 객체?)도 보냄. 
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return null;
+		
+		
+				
+	}
+
+	
+
 }
 	
 
