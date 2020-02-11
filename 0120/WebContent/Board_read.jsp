@@ -2,7 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ page import="com.green.study.dto.Board_Dto" %>
 <%@ page import="java.util.ArrayList" %>
-<% String postid = request.getParameter("postid"); //url에 표시되는 내용, 23번 게시물 a링크를 탈 경우 postid = 23임.
+<% String qid = request.getParameter("qid"); //url에 표시되는 내용, 23번 게시물 a링크를 탈 경우 postid = 23임.
 %>
 
 <!DOCTYPE html>
@@ -52,35 +52,34 @@
 			<label class="lnb2"> 질문보기 </label>
 			<div id=QnaboardbodyBox align=center>
 				<jsp:useBean id="bd" class="Dao.Board_Dao"> </jsp:useBean>
-					<% ArrayList<Board_Dto> clist = bd.BoardSelect(postid); %>
+					<% ArrayList<Board_Dto> clist = bd.BoardSelect(qid); %>
 					
 					<table class="type07">
 						<tr>
 						<td scope="row" id='idd'><font color="red">*</font>Name</td>
-						<th colspan="2" id='iddd'> <% out.println(clist.get(0).getName()); %> </th>
+						<th colspan="2" id='iddd'> <% out.println(clist.get(0).getMemberid()); %> </th>
 						</tr>
 						<tr>
 							<td><font color="red" id='idd'>*</font>Question Title</td>
-							<th colspan="2" id='iddd'><% out.println(clist.get(0).getPosttitle()); %></th>
+							<th colspan="2" id='iddd'><% out.println(clist.get(0).getTitle()); %></th>
 						</tr>
-						<tr>
+						<tr>     
 							<td scope="row"  id='idd'><font color="red">*</font>Question Category</td>
-							<th colspan="2"  id='iddd'> <% out.println(clist.get(0).getPostcategory()); %></th>
+							<th colspan="2"  id='iddd'> <% out.println(clist.get(0).getCategory()); %></th>
 						</td>
 						</tr>
 						<tr>
 						<td scope="row" id='idd'><font color="red">*</font>Question</td>
-						<th colspan="2" id='iddd'><% out.println(clist.get(0).getPostcontents()); %></th>
+						<th colspan="2" id='iddd'><% out.println(clist.get(0).getContents()); %></th>
 						</tr>
 					</table>
-								
 			</div> 
 						
 			<article>
 			<div class="BoardmenubarColor" style="line-height: 35px">
 				<ul class="BoardUnderMenu" style="margin-left: 420px;">
-					<li><a class="BoardUnderMenuFont" href="Board_Modify.jsp?postid=<%=postid%>">수정 </a></li>
-					<li><a class="BoardUnderMenuFont" href="BoardDb3.jsp?postid=<%=postid%>">삭제  </a></li>
+					<li><a class="BoardUnderMenuFont" href="Board_Modify.jsp?qid=<%=qid%>">수정 </a></li>
+					<li><a class="BoardUnderMenuFont" href="BoardDb3.jsp?qid=<%=qid%>">삭제  </a></li>
 					<li><a class="BoardUnderMenuFont"
 						onclick="location.href='BoardHome2.jsp'"> 목록 </a></li>
 				</ul>

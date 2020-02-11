@@ -52,7 +52,7 @@ public class Db_Dao {
 			Db_Dao();
 			DbConnect();
 			state = conn.createStatement();
-			String input = String.format("Insert into Gs_Join values('%s','%s','%s','%s','%s','%s','%s','%s','%s')", n1,
+			String input = String.format("Insert into member values('%s','%s','%s','%s','%s','%s','%s','%s','%s','f')", n1,
 					n2, n3, n4, n5, n6, n7, n8, n9);
 			state.executeUpdate(input);
 		} catch (Exception e) {
@@ -68,7 +68,7 @@ public class Db_Dao {
 			Db_Dao();
 			DbConnect();
 			state = conn.createStatement(); // state 연결
-			String s = String.format("select id from Gs_Join where id = '%s';", s1); // 출력 테이블 대입
+			String s = String.format("select id from member where id = '%s';", s1); // 출력 테이블 대입
 			ResultSet aa = state.executeQuery(s);
 			if (aa.next()) {
 				n = 1;
@@ -91,7 +91,7 @@ public class Db_Dao {
 			Db_Dao();
 			DbConnect();
 			state = conn.createStatement(); // state 연결
-			s = String.format("select pw from Gs_Join where id = '%s';", s1); // 출력 테이블 대입
+			s = String.format("select pw from member where id = '%s';", s1); // 출력 테이블 대입
 			ResultSet aa = state.executeQuery(s);
 			if(aa.next()) {
 				ss = aa.getString("pw");

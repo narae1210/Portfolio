@@ -5,7 +5,7 @@
 <%@ page import="java.util.ArrayList" %>
 
 <% String id = (String)session.getAttribute("idinputLog");%>
-<% String postid = request.getParameter("postid");%>
+<% String qid2 = request.getParameter("qid");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,19 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="jquery.slides.min.js"></script>
 <script type="text/javascript" src="js/superslide.2.1.js"></script>
+<script>
+function empty_check() {
+	var text_len = my_form.title.value.length
+	var text_len2 = my_form.contents.value.length
+		if ((text_len < 1) || (text_len2 < 1)) {
+		alert("빈 칸을 입력해주세요")
+		my_form.contents.focus()
+	}
+	else {
+		my_form.submit();
+	}
+}
+</script>
 
 <title>질문수정</title>
 </head>
@@ -49,22 +62,22 @@
 				<label class="lnb"> 질문수정 </label>
 				
 				<jsp:useBean id="bd" class="Dao.Board_Dao"> </jsp:useBean>
-					<% ArrayList<Board_Dto> clist = bd.BoardSelect(postid); %>
+					<% ArrayList<Board_Dto> clist = bd.BoardSelect(qid2); %>
 								 	
 			 		<table style= "position:absolute; top:80px; left:150px;">
 						<tr>
 						<th><font color="red">*</font>ID</th>
-						<td colspan="2"><% out.println(clist.get(0).getName()); %> </td>
+						<td colspan="2"><% out.println(clist.get(0).getMemberid()); %> </td>
 						</tr>
 						<tr>
-						<th><input type = "hidden" value="<%=postid%>" > </th>
+						<th><input type = "hidden" value="<%=qid2%>" name="qid"> </th>
 						</tr>
 						<tr>
 							<th><font color="red">*</font>Question Title</th>
 							<td></td> 
 						</tr>
 						<tr>
-							<td colspan="3"><input type="text" value="<%=clist.get(0).getPosttitle()%>" name="title" size="60"
+							<td colspan="3"><input type="text" value="<%=clist.get(0).getTitle()%>" name="title" size="60"
 								maxlength="20"></td>
 						</tr>
 						<tr>
@@ -78,12 +91,12 @@
 							<th><font color="red">*</font>Question</th>
 						</tr>
 						<tr>
-							<td colspan="3"><input type="text" value="<%=clist.get(0).getPostcontents()%>" name="contents" size="60"
+							<td colspan="3"><input type="text" value="<%=clist.get(0).getContents()%>" name="contents" size="60"
 								maxlength="60"></td>
 						</tr>
 						
 					</table>
-					<input type="submit" value="Submit!" name="modifyin"
+					<input type="submit" value="Submit!" name="modifyin" onclick="empty_check()"
 						style="width: 500px; height: 40px; background-color: #2196f3; position:absolute; top:450px; left:140px;" onclick="empty_check()">
 					</div>
 				</div>

@@ -66,26 +66,25 @@ String id = (String)session.getAttribute("idinputLog");
 		<%	for(int i=0; i<list.size(); i++){
 		if( i % 2 == 0 ){%>
 				<tr>	
-					<td class="even"><% out.println(list.get(i).getPostid()); %></td>
-					<th class="even" id="idd"><a href="Board_read.jsp?postid=<%=list.get(i).getPostid()%>"> <% out.println(list.get(i).getPosttitle()); %></a></th>
-					<td class="even"><% out.println(list.get(i).getPostcategory()); %></td>
-					<td class="even"><% out.println(list.get(i).getName()); %></td>
+					<td class="even"><% out.println(list.get(i).getQid()); %></td>
+					<th class="even" id="idd"><a href="Board_read.jsp?qid=<%=list.get(i).getQid()%>"> <% out.println(list.get(i).getTitle()); %></a></th>
+					<td class="even"><% out.println(list.get(i).getCategory()); %></td>
+					<td class="even"><% out.println(list.get(i).getMemberid()); %></td>
 					<td class="even" id="idd"><% out.println(list.get(i).getDate()); %></td>
-					<td class="even"><% out.println(list.get(i).getAnswer()); %></td>
+					<td class="even"><% out.println("미답변"); %></td>
 				</tr>
 				<% }
 				else{%>
 				<tr>
-					<td scope="row"><% out.println(list.get(i).getPostid()); %></td>
-					<th scope="row" id="idd"><a href="Board_read.jsp?postid=<%=list.get(i).getPostid()%>"><% out.println(list.get(i).getPosttitle()); %></a></th>
-					<td scope="row"><% out.println(list.get(i).getPostcategory()); %></td>
-					<td scope="row"><% out.println(list.get(i).getName()); %></td>
+					<td scope="row"><% out.println(list.get(i).getQid()); %></td>
+					<th scope="row" id="idd"><a href="Board_read.jsp?qid=<%=list.get(i).getQid()%>"><% out.println(list.get(i).getTitle()); %></a></th>
+					<td scope="row"><% out.println(list.get(i).getCategory()); %></td>
+					<td scope="row"><% out.println(list.get(i).getMemberid()); %></td>
 					<td scope="row" id="idd"><% out.println(list.get(i).getDate()); %></td>
-					<td scope="row"><% out.println(list.get(i).getAnswer()); %></td>
+					<td scope="row"><% out.println("미답변"); %></td>
 				</tr>
 				<%} %>
-
-		<% }
+			<% }
 			%>
 	
 			</table>

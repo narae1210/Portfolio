@@ -11,8 +11,6 @@ public class QuizDto {
 	String quizinex;
 	String quizoutex;
 	String quizlevel;
-	int re_ref;
-	int re_seq;
 	
 	public int getQuizid() {
 		return quizid;
@@ -68,18 +66,7 @@ public class QuizDto {
 	public void setQuizlevel(String quizlevel) {
 		this.quizlevel = quizlevel;
 	}
-	public int getRe_ref() {
-		return re_ref;
-	}
-	public void setRe_ref(int re_ref) {
-		this.re_ref = re_ref;
-	}
-	public int getRe_seq() {
-		return re_seq;
-	}
-	public void setRe_seq(int re_seq) {
-		this.re_seq = re_seq;
-	}
+
 }
 
 

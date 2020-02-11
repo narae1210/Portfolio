@@ -10,8 +10,9 @@
 	select * from Quizboard where quizid=#{quizid};
 </select>
 
+
 <insert id="answerwritePro" parameterType="QuizDto">
-	insert into Quizboard (re_ref, se_seq) values (#{re_ref},#{se_seq}); <!-- 테스트용 삽입 쿼리 -->
+	insert into Quizanswer (ref, seq) values (#{ref},#{seq}); <!-- 테스트용 삽입 쿼리 -->
 </insert>
 
 </mapper>

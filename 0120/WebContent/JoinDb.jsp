@@ -7,7 +7,7 @@
 
 
 <% 
-request.setCharacterEncoding("euc-kr");
+request.setCharacterEncoding("utf-8");
 String id = request.getParameter("idinput");
 String pw = request.getParameter("bimil");
 String name = request.getParameter("name");

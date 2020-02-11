@@ -7,10 +7,10 @@
 request.setCharacterEncoding("utf-8");
 String id = (String)session.getAttribute("idinputLog");
 String posttitle = request.getParameter("title");
-String postid = request.getParameter("postid");
+String qid2 = request.getParameter("qid");
 String postcontents = request.getParameter("contents");
 String category = request.getParameter("category");
-System.out.println("postid: "+postid);
+System.out.println("qid: "+qid2);
 System.out.println("postcontents: "+postcontents);
 System.out.println("posttitle: "+posttitle);
 System.out.println("category: "+category);
@@ -26,10 +26,10 @@ System.out.println("category: "+category);
 </head>
 <body>
 	<jsp:useBean id="dao" class="Dao.Board_Dao"/> <!-- Board_DAO 파일의 메소드를 불러오기 위한 jsp명령어 -->
-		<% int edit = dao.Update(posttitle, postcontents, id, postid);
+		<% int edit = dao.Update(posttitle, postcontents, id, qid2);
 	
 		if (edit > 0){ 
-		      out.println("<script>alert('d')");
+		      out.println("<script>alert('d')</script>");
 		 	  
 		 }
 		else {

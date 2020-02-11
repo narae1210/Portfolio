@@ -66,7 +66,7 @@
 				<td class="even"><% out.println(arr.get(i).getQuiztheme());%></td>
 				<td class="even"><a href="sang.do?command=selectdetail&quizid=<%=arr.get(i).getQuizid()%>"><% out.println(arr.get(i).getQuiztitle());%></a></td>
 				<td class="even"><% out.println(arr.get(i).getQuizlevel());%></td>
-				<td class="even"><% out.println(arr.get(i).getRe_seq());%></td>
+				<td class="even"><% out.println("0");%></td> <!-댓글 수를 별도 테이블에서 불러와야 함 ->
 			</tr>
  				<% }
 				else{%>
@@ -75,7 +75,7 @@
  				<td scope="row"><% out.println(arr.get(i).getQuiztheme());%></td>
 				<td scope="row"><a href="sang.do?command=selectdetail&quizid=<%=arr.get(i).getQuizid()%>"><% out.println(arr.get(i).getQuiztitle());%></td>
 				<td scope="row"><% out.println(arr.get(i).getQuizlevel());%></td>
-				<td scope="row"><% out.println(arr.get(i).getRe_seq());%></td>
+				<td scope="row"><% out.println("0");%></td> <!-댓글 수를 별도 테이블에서 불러와야 함 ->
 			</tr>
  				<%} %>
 			<% }

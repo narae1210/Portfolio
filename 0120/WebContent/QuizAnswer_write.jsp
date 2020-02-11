@@ -26,7 +26,7 @@ function empty_check() {
 	var text_len2 = my_form.contents.value.length
 	if ((text_len < 1) || (text_len2 < 1)) {
 		alert("빈 칸을 입력해주세요")
-		my_form.text_len.focus()
+		my_form.contents.focus()
 	}
 	else {
 		my_form.submit();

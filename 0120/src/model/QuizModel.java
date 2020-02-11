@@ -53,20 +53,15 @@ public class QuizModel {
 		Integer q = Integer.parseInt(seq);
 		SqlSession sqlSession = factory.openSession();
 		call.setQuizid(i);
-		call.setRe_ref(r);
-		call.setRe_seq(q);
+		//call.setRe_ref(r);
+		//call.setRe_seq(q);
 		sqlSession.insert("answerwritePro", call); //mapper.xml에 가서 select id="answerwritePro"실행함. 이 때 QuizDto에 값을 넣은 call (매개변수? 객체?)도 보냄. 
 		
 		sqlSession.commit();
 		sqlSession.close();
 		return null;
 		
-		
-				
 	}
-
-	
-
 }
 	
 

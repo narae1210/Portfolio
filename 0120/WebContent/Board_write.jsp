@@ -24,9 +24,9 @@ String id = (String)session.getAttribute("idinputLog");
 function empty_check() {
 	var text_len = my_form.title.value.length
 	var text_len2 = my_form.contents.value.length
-	if ((text_len < 1) || (text_len2 < 1)) {
+		if ((text_len < 1) || (text_len2 < 1)) {
 		alert("빈 칸을 입력해주세요")
-		my_form.text_len.focus()
+		my_form.contents.focus()
 	}
 	else {
 		my_form.submit();
@@ -84,7 +84,7 @@ function empty_check() {
 
 						</tr>
 					</table>
-					<input type="submit" value="Submit!" name="questionin"
+					<input type="button" value="Submit!" name="questionin" onclick="empty_check()"
 						style="width: 500px; height: 40px; background-color: #2196f3; position: absolute; top: 450px; left: 140px;">
 				</div>
 				</div>

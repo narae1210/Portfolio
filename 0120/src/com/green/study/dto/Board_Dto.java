@@ -2,55 +2,48 @@ package com.green.study.dto;
 
 public class Board_Dto {
 
-	int postid;
-	String posttitle;
-	String postcategory;
-	String postcontents;
-	String name;
+	int qid;
+	String title;
+	String category;
+	String contents;
+	String memberid;
 	String date;
-	String answer;
-
-	public int getPostid() {
-		return postid;
+	
+	public int getQid() {
+		return qid;
 	}
-	public void setPostid(int postid) {
-		this.postid = postid;
+	public void setQid(int qid) {
+		this.qid = qid;
 	}
-	public String getPosttitle() {
-		return posttitle;
+	public String getTitle() {
+		return title;
 	}
-	public void setPosttitle(String posttitle) {
-		this.posttitle = posttitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getPostcategory() {
-		return postcategory;
+	public String getCategory() {
+		return category;
 	}
-	public void setPostcategory(String postcategory) {
-		this.postcategory = postcategory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	public String getPostcontents() {
-		return postcontents;
+	public String getContents() {
+		return contents;
 	}
-	public void setPostcontents(String postcontents) {
-		this.postcontents = postcontents;
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
-	public String getName() {
-		return name;
+	public String getMemberid() {
+		return memberid;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
 	}
 	public String getDate() {
 		return date;
 	}
 	public void setDate(String date) {
 		this.date = date;
-	}
-	public String getAnswer() {
-		return answer;
-	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
 	}
 	
 }

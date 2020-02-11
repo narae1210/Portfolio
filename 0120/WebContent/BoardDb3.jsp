@@ -6,9 +6,9 @@
 <%
 request.setCharacterEncoding("utf-8");
 String id = (String)session.getAttribute("idinputLog");
-String postid2 = request.getParameter("postid"); 
+String qid2 = request.getParameter("qid"); 
 System.out.println("id: "+id);
-System.out.println("postid: "+postid2);
+System.out.println("postid: "+qid2);
 %>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -21,7 +21,7 @@ System.out.println("postid: "+postid2);
 </head>
 <body>
 	<jsp:useBean id="dao" class="Dao.Board_Dao">
-		<%	int delete = dao.Delete(id, postid2);
+		<%	int delete = dao.Delete(id, qid2);
 			//System.out.println(delete);	
 			%>
 		
