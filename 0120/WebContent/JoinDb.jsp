@@ -16,7 +16,8 @@ String address1 = request.getParameter("adr1");
 String address2 = request.getParameter("adr2");
 String address = address0 + address1 +address2;
 String gender = request.getParameter("gender");
-	if (gender.equalsIgnoreCase("man")){
+System.out.println(gender);
+	if (gender.equalsIgnoreCase("m")){
 		gender = "남자";
 	} else {
 		gender = "여자";
@@ -46,11 +47,7 @@ if( language != null) {
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<script>
-function alert() {
-	alert("중복된아이디입니다. 다시 입력해주세요.")
-}
-</script>
+
 </head>
 <body>
 	<jsp:useBean id="dao" class="Dao.Db_Dao">
@@ -58,7 +55,7 @@ function alert() {
 			int n = dao.Jungbok(id);
 						
 			if(n == 0){
-				dao.Insert(id, pw, name, address, email, birthday, mobile, lang, gender);
+				dao.Insert(id, pw, name, address, gender, email, birthday, mobile, lang);
 				response.sendRedirect("Login.jsp");
 			}
 			

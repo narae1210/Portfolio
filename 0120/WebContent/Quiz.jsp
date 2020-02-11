@@ -34,7 +34,7 @@
 		<div class="menubar" style="line-height: 35px">
 			<ul class="underMenu">
 				<li><a class="underMenuFont"
-					onclick="location.href='QuizdHome.jsp'">문제홈</a></li>
+					onclick="location.href='QuizHome.jsp'">문제홈</a></li>
 
 				<li><a class="underMenuFont" href="sang.do?command=select"> 
 				<p style="text-decoration: underline">단계별문제</p></a></li>
@@ -64,7 +64,7 @@
 				<tr>	
 				<td class="even"><% out.println(arr.get(i).getQuizid());%></td>
 				<td class="even"><% out.println(arr.get(i).getQuiztheme());%></td>
-				<td class="even"><a href="sang.do?command=selectdetail&quizid=<%=arr.get(i).getQuizid()%>"><% out.println(arr.get(i).getQuiztitle());%></a></td>
+				<td class="even"><a href="Login.jsp"><% out.println(arr.get(i).getQuiztitle());%></a></td>
 				<td class="even"><% out.println(arr.get(i).getQuizlevel());%></td>
 				<td class="even"><% out.println("0");%></td> <!-댓글 수를 별도 테이블에서 불러와야 함 ->
 			</tr>
@@ -73,7 +73,7 @@
 			<tr>
 				<td scope="row"><% out.println(arr.get(i).getQuizid()); %></td>
  				<td scope="row"><% out.println(arr.get(i).getQuiztheme());%></td>
-				<td scope="row"><a href="sang.do?command=selectdetail&quizid=<%=arr.get(i).getQuizid()%>"><% out.println(arr.get(i).getQuiztitle());%></td>
+				<td scope="row"><a href="Login.jsp"><% out.println(arr.get(i).getQuiztitle());%></td>
 				<td scope="row"><% out.println(arr.get(i).getQuizlevel());%></td>
 				<td scope="row"><% out.println("0");%></td> <!-댓글 수를 별도 테이블에서 불러와야 함 ->
 			</tr>

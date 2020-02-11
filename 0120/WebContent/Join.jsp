@@ -74,7 +74,7 @@ $(document).ready(function(){
 							<td colspan="2"><input type="text" name="idinput" id = "idinput" size="30"
 								maxlength="12"></td>
 								
-							<td><input type="IdCheck_button" name="checkid" id = "checkid" value="IDcheck"
+							<td><input type="button" name="checkid" id = "checkid" value="IDcheck"
 								style="width: 100px; background-color: #2196f3;"
 								onclick="id_check()"></td>
 						</tr>
@@ -153,8 +153,8 @@ $(document).ready(function(){
 						</tr>
 						<tr>
 							<td colspan="3">Man : <input type="radio" name="gender"
-								value="man" checked> Woman : <input type="radio"
-								name="gender" value="woman">
+								value="m" checked> Woman : <input type="radio"
+								name="gender" value="w">
 						</tr>
 						<tr>
 							<td><font color="red">*</font>E-mail</td>

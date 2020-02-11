@@ -48,13 +48,18 @@ public class Db_Dao {
 
 	public void Insert(String n1, String n2, String n3, String n4, String n5, String n6, String n7, String n8,
 			String n9) {
+		System.out.println("n1:"+n1 + "n2:"+n2 + "n3:"+n3 + "n4:"+n4 + "n5:"+n5);
+		System.out.println("n6:"+n6 + "n7:"+n7 + "n8:"+n8 + "n9:"+n9);
 		try {
 			Db_Dao();
 			DbConnect();
 			state = conn.createStatement();
-			String input = String.format("Insert into member values('%s','%s','%s','%s','%s','%s','%s','%s','%s','f')", n1,
+			String input = String.format("Insert into member(id, pw, name, address, gender, email, birthday, mobile, language, ispro) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','f')", n1,
 					n2, n3, n4, n5, n6, n7, n8, n9);
+			System.out.println(input);
 			state.executeUpdate(input);
+			System.out.println(n6);
+
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {

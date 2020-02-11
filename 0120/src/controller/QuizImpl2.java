@@ -10,10 +10,10 @@ import com.green.study.dto.QuizDto;
 import model.QuizModel;
 
 
-public class QuizImpl implements CommandInter{
+public class QuizImpl2 implements CommandInter{
 
-	static QuizImpl impl = new QuizImpl();
-	public static QuizImpl instance() {
+	static QuizImpl2 impl = new QuizImpl2();
+	public static QuizImpl2 instance() {
 		return impl;
 
 	}
@@ -26,6 +26,6 @@ public class QuizImpl implements CommandInter{
 		System.out.println(list.get(0).getQuizid());
 		request.setAttribute("data", list); //data에 List<SangpumDto> list값을 임시로 담음.
 		
-		return "Quiz.jsp"; //컨트롤러서블릿으로 String값 리턴.
+		return "Quiz2.jsp"; //컨트롤러서블릿으로 String값 리턴.
 	}
 }

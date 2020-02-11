@@ -33,7 +33,7 @@
 				onclick="location.href='StudyHome2.jsp'">&nbsp;&nbsp;&nbsp;스터디</a></li>
 			<li><a class="topMenuFont">아카이브 </a></li>
 			<li><a class="topMenuFont"
-				onclick="location.href='QuizHome22.jsp'">문제 </a></li>
+				onclick="location.href='QuizHome2.jsp'">문제 </a></li>
 			<li><a class="topMenuFont"
 				onclick="location.href='BoardHome2.jsp'">게시판 </a></li>
 		</ul>
