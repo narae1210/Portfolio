@@ -1,13 +1,18 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import Mybatis.SqlMapConfig;
+
+import com.green.study.dto.QuizAnswerDto;
 import com.green.study.dto.QuizDto;
+
+
+
+
 
 public class QuizModel {
 	static QuizModel model = new QuizModel();
@@ -20,8 +25,10 @@ public class QuizModel {
 
 	public List<QuizDto> selectQuiz(){ //List는 ArrayList와 비슷. DTO 형태라는 의미.
 		List<QuizDto> list = null;
+		System.out.println("퀴즈모델");
 		SqlSession sqlSession = factory.openSession(); //sqlSession은 마이바티스에서 DB를 처리하는 명령어임
 		list = sqlSession.selectList("selectQuiz"); //mapper.xml에 가서 select id="selectQuiz" resultType="QuizDto" 실행함.
+		System.out.println("SQL 시도 > 리스트값 반환");
 		sqlSession.close();
 		return list; //퀴즈임플에 List<QuizDto> list 반환.
 	}	
@@ -38,30 +45,57 @@ public class QuizModel {
 		sqlSession.close();
 		return list; //퀴즈임플에 List<QuizDto> list 반환.
 	}
-	
-	//답변 작성 메서드 추가
-/*	public void asnwerWriteForm(String id) {
-	}*/
-	
+	//글의 개수 구하기.
+/*	public int selectAnswerCount(int num) {
+
+		Connection con;
+		int AnswerCount= 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try{
+			System.out.println("DAO.selectListCount: getConnection");
+			pstmt=con.prepareStatement("select count(*) from quizanswer where ref='num';");
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				AnswerCount=rs.getInt(1);
+			}
+		}catch(Exception ex){
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return AnswerCount;
+	}
+*/
 	//답변 제출 메서드 추가
-	public String asnwerWritePro(String id, String ref, String seq) {
+	public String asnwerWritePro(String ref, String language, String contents, String name) {
 		System.out.println("model패키지-답변 처리 메서드");
 		//압변 내용은 별도 테이블에 따로 저장
-		QuizDto call = new QuizDto();
-		Integer i = Integer.parseInt(id);
+		QuizAnswerDto qanswerdto = new QuizAnswerDto(); //qanswerdto 임포트 내용 재정의
 		Integer r = Integer.parseInt(ref);
-		Integer q = Integer.parseInt(seq);
 		SqlSession sqlSession = factory.openSession();
-		call.setQuizid(i);
-		//call.setRe_ref(r);
-		//call.setRe_seq(q);
-		sqlSession.insert("answerwritePro", call); //mapper.xml에 가서 select id="answerwritePro"실행함. 이 때 QuizDto에 값을 넣은 call (매개변수? 객체?)도 보냄. 
+		qanswerdto.setRef(r);
+		qanswerdto.setLanguage(language);
+		qanswerdto.setContents(contents);
+		qanswerdto.setName(name);
+		sqlSession.insert("answerwritePro", qanswerdto); //mapper.xml에 가서 select id="answerwritePro"실행함. 이 때 QuizDto에 값을 넣은 call (매개변수? 객체?)도 보냄. 
 		
 		sqlSession.commit();
 		sqlSession.close();
 		return null;
 		
 	}
+	//답변 목록 메서드 추가
+	public List<QuizAnswerDto> QAnswerList(String name){
+		List<QuizAnswerDto> list = null;
+		System.out.println("답변목록");
+		QuizAnswerDto qanswerdto = new QuizAnswerDto();
+		qanswerdto.setName(name);
+		SqlSession sqlSession = factory.openSession(); //sqlSession은 마이바티스에서 DB를 처리하는 명령어임
+		list = sqlSession.selectList("answerlist", qanswerdto); //mapper.xml에 가서 select id="answerlist" resultType="QuizAnswerDto" 실행함.
+		sqlSession.close();
+		return list;
+		
+	}
 }
-	
-

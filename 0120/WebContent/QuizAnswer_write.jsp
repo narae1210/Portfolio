@@ -3,6 +3,9 @@
 <%@page import="java.sql.*"%>
 <%
 String id = (String)session.getAttribute("idinputLog");
+String quizid = request.getParameter("quizid");
+System.out.println(id);
+System.out.println(quizid);
 %>
 <!DOCTYPE html>
 <html>
@@ -38,15 +41,15 @@ function empty_check() {
 </head>
 
 <body>
-		<jsp:include page ="Header.jsp"></jsp:include>
+		<jsp:include page ="Header2.jsp"></jsp:include>
 	<br>
 	<nav>
 		<div class="menubar" style="line-height: 35px">
 			<ul class="underMenu">
 				<li><a class="underMenuFont"
-					onclick="location.href='QuizHome.jsp'">문제홈</a></li>
+					onclick="location.href='QuizHome2.jsp'">문제홈</a></li>
 
-				<li><a class="underMenuFont" href="sang.do?command=select"> 
+				<li><a class="underMenuFont" href="sang.do?command=select2"> 
 				<p style="text-decoration: underline">단계별문제</p></a></li>
 				
 				<li><a class="underMenuFont"
@@ -56,14 +59,17 @@ function empty_check() {
 	</nav>
 	<br><br><br>
 <section style="Height: 684px;">
-		<form name="my_form" action="Sang.do?command=answerwritepro" method=post>  <!--서블릿에서 받는 명령어 if (command.equals("answerwritepro")) {e -->
+		<form name="my_form" action="Sang.do?command=answerwritepro" method=post>  <!--서블릿에서 받는 명령어 if (command.equals("answerwritepro")) {e -->  
 				<div id=QnaboardbodyBox align="center">
 				<div id=BoardBox align="center" style ="height: 500px;">
 				
 				<label class="lnb"> 문제풀기 </label>
 				<table style= "position:absolute; top:80px; left:150px;">
-				<!-- input type hidden:  퀴즈아이디, 댓글ref, 댓글seq --> 
-	
+ 
+						<tr>
+						<td><input type = "hidden"  value="<%=quizid%>" name="qid"> </td>
+						<td><input type = "hidden"  value="<%=id%>" name="memberid"> </td>
+						</tr>
 						<tr>
 							<th><font color="red">*</font>언어</th>
 							<td colspan="2"><select name="uselang">
@@ -104,8 +110,7 @@ function empty_check() {
 
 						</tr>
 					</table>
-					<input type="submit" value="Submit!" name="quizanswerin"
-						style="width: 500px; height: 40px; background-color: #2196f3; position:absolute; top:450px; left:140px;" onclick="empty_check()">
+					<input type="submit" value="Submit!" name="quizanswerin">
 					</div>
 				</div>
 		</form>

@@ -28,7 +28,7 @@
 
 <body>
 	<header>
-		<jsp:include page ="Header.jsp"></jsp:include>
+		<jsp:include page ="Header2.jsp"></jsp:include>
 	</header>
 
 	<br>
@@ -78,7 +78,13 @@
 						<th colspan="2" id='iddd'><% out.println(clist.get(0).getQuizoutex()); %></th>
 						</tr>
 					</table>
-								
+
+		
+			<div class="BoardmenubarColor" style="line-height: 35px">
+				<ul class="BoardUnderMenu" style="margin-left: 420px;">
+					<li><a class="BoardUnderMenuFont" href="QuizAnswer_write.jsp?quizid=<%=quizid%>">제출</a></li>
+			</ul></div>
+							
 			</div> 
 						
 

@@ -27,16 +27,16 @@
 </head>
 
 <body>
-		<jsp:include page ="Header.jsp"></jsp:include>
+		<jsp:include page ="Header2.jsp"></jsp:include>
 	
 	<br>
 	<nav>
 		<div class="menubar" style="line-height: 35px">
 			<ul class="underMenu">
 				<li><a class="underMenuFont"
-					onclick="location.href='QuizHome.jsp'">문제홈</a></li>
+					onclick="location.href='QuizHome2.jsp'">문제홈</a></li>
 
-				<li><a class="underMenuFont" href="sang.do?command=select"> 
+				<li><a class="underMenuFont" href="sang.do?command=select2"> 
 				<p style="text-decoration: underline">단계별문제</p></a></li>
 				
 				<li><a class="underMenuFont"
